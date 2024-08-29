@@ -31,7 +31,7 @@ function playImage() {
 function getRandomNoise() {
     const f = "./src/audio/";
     var randomInt = parseInt(document.getElementById("sessionCount").innerHTML) % 2 + 1;
-    var w = f + "lick" + randomInt + ".wav";
+    var w = f + "lick" + randomInt + ".mp3";
     return w;
 }
 
@@ -40,7 +40,7 @@ function updateClicks(addNum = "False") {
         url: "https://4epk4wx25ffur6udpbnhrlglue0rhrdv.lambda-url.ap-northeast-2.on.aws/",
         type: "POST",
 		contentType: "application/json",
-        data: JSON.stringify({ 'licking': addNum }),
+        data: JSON.stringify({ 'licking': addNum, 'megumin' : 'True' }),
         success: function (returnData) {
             console.log(returnData);
             document.getElementById("counted").innerHTML = parseInt(returnData, 10).toLocaleString('en-US');
